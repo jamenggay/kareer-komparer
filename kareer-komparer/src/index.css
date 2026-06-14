@@ -1213,6 +1213,460 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-1px);
 }
 
+/* =============================================================
+   Questionnaire & Career Fit Elements Styles
+   ============================================================= */
+
+.questionnaire-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 40px;
+}
+
+.questionnaire-header {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.questionnaire-tag {
+  background-color: var(--secondary);
+  color: var(--dark-neutral);
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.questionnaire-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+  color: var(--dark-neutral);
+}
+
+.questionnaire-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.questionnaire-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .questionnaire-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.question-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.question-label {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--dark-neutral);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.question-num {
+  background-color: var(--primary);
+  color: var(--dark-neutral);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.label-helper {
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.option-btn {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dark-neutral);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.option-btn:hover {
+  border-color: var(--primary);
+  background-color: rgba(243, 172, 91, 0.05);
+}
+
+.option-btn.active {
+  border-color: var(--primary);
+  background-color: rgba(243, 172, 91, 0.12);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.option-icon {
+  font-size: 1.25rem;
+}
+
+/* Career Fit Analysis block */
+.fit-analysis-container {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .fit-analysis-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.fit-analysis-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fit-analysis-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+}
+
+.left-card .fit-analysis-card::before {
+  background-color: var(--primary);
+}
+
+.right-card .fit-analysis-card::before {
+  background-color: var(--secondary);
+}
+
+.fit-info-wrapper {
+  flex-grow: 1;
+}
+
+.fit-card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--dark-neutral);
+  margin-bottom: 4px;
+}
+
+.fit-match-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.fit-gauge-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.4rem;
+  box-shadow: inset 0 0 0 6px var(--bg-neutral);
+  position: relative;
+  background: var(--bg-card);
+}
+
+.left-card .fit-gauge-circle {
+  color: var(--dark-neutral);
+  border: 6px solid var(--primary);
+}
+
+.right-card .fit-gauge-circle {
+  color: var(--dark-neutral);
+  border: 6px solid var(--secondary);
+}
+
+/* Why This Career Fits list */
+.why-fit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.why-fit-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  color: var(--dark-neutral);
+  font-weight: 600;
+}
+
+.why-fit-check {
+  color: #10B981;
+  font-weight: 900;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Goals Alignment Matrix */
+.matrix-bridge {
+  grid-column: 1 / -1;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+  text-align: left;
+}
+
+.matrix-header {
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--bg-neutral);
+  padding-bottom: 12px;
+}
+
+.matrix-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark-neutral);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.matrix-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.matrix-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.matrix-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-neutral);
+  align-items: center;
+  transition: transform var(--transition-fast);
+}
+
+.matrix-row:hover {
+  transform: scale(1.01);
+  background: #f1ebd9;
+}
+
+.matrix-priority-title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--dark-neutral);
+}
+
+.matrix-value {
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.matrix-check {
+  color: #10B981;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.matrix-cross {
+  color: #94A3B8;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* Work Style Visual Scales */
+.work-style-scales {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.visual-scale-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.scale-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--dark-neutral);
+}
+
+.scale-track {
+  height: 8px;
+  background: var(--bg-neutral);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scale-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.left-card .scale-fill {
+  background-color: var(--primary);
+}
+
+.right-card .scale-fill {
+  background-color: var(--secondary);
+}
+
+/* Recommendation Insight Card */
+.insight-card {
+  grid-column: 1 / -1;
+  background: var(--dark-neutral);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.insight-card::before {
+  content: '⚡';
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+  font-size: 10rem;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.insight-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.insight-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--primary);
+}
+
+.insight-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.insight-body {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 900px;
+  margin-bottom: 20px;
+}
+
+.insight-tips-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .insight-tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.insight-tip-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.insight-tip-title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.insight-tip-desc {
+  font-size: 0.85rem;
+  color: #E2E8F0;
+  line-height: 1.45;
+}
+
 /* Footer Accent */
 .footer-credit {
   margin-top: auto;

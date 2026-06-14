@@ -5,12 +5,20 @@ import { CareerDropdown } from './components/CareerDropdown';
 import { EmptyState } from './components/EmptyState';
 import { ComparisonView } from './components/ComparisonView';
 import { CoachModal } from './components/CoachModal';
+import { Questionnaire, type QuestionnaireAnswers } from './components/Questionnaire';
 
 function App() {
   const [careerA, setCareerA] = useState<Career | null>(null);
   const [careerB, setCareerB] = useState<Career | null>(null);
   const [modalCareer, setModalCareer] = useState<Career | null>(null);
   const [modalSkill, setModalSkill] = useState<string | null>(null);
+  
+  const [questionnaireAnswers, setQuestionnaireAnswers] = useState<QuestionnaireAnswers>({
+    enjoyedWork: '',
+    strongestSkills: [],
+    mattersMost: [],
+    workStyle: ''
+  });
 
   // Filter out the already selected career from each opposite dropdown options list (optional, but premium feel)
   const optionsForA = careersData.filter((c) => !careerB || c.title !== careerB.title);
@@ -33,6 +41,12 @@ function App() {
       <Header />
 
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        {/* Questionnaire Component */}
+        <Questionnaire
+          answers={questionnaireAnswers}
+          onChange={setQuestionnaireAnswers}
+        />
+
         {/* 2. Dual Selectors panel */}
         <section className="selectors-panel">
           <CareerDropdown
@@ -156,6 +170,7 @@ function App() {
           <ComparisonView
             careerA={careerA}
             careerB={careerB}
+            questionnaireAnswers={questionnaireAnswers}
             onConnectCoach={(career, skill) => {
               setModalCareer(career);
               setModalSkill(skill || null);
